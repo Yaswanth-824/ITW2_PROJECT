@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="/static/css/design.css" type="text/css" rel="stylesheet">
+    <link href="/static/css/newuser.css" type="text/css" rel="stylesheet">
+    <link href="/static/css/login.css" type="text/css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/static/css/style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    {% if path == '/' %}
+    <title>School Website</title>
+    {% elif path == '/teacher/' %}
+    <title>teacher</title>
+    {% elif path == '/student/' %}
+    <title>student</title>
+    {% else %}
+    <title>{{about_title.title}}</title>
+    {% endif %}
+    <style>
+        .fixed-navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+        }
+    </style>
+    <script>
+    window.onload = function () {
+        // Get references to the select element and the two field divs
+        var userTypeSelect = document.getElementById("user_type");
+        var teacherFields = document.getElementById("teacher-fields");
+        var studentFields = document.getElementById("student-fields");
+
+        // Add an event listener to the select element
+        userTypeSelect.addEventListener("change", function () {
+            // Determine the selected value
+            var selectedValue = userTypeSelect.value;
+
+            // Hide both field divs by default
+            teacherFields.style.display = "none";
+            studentFields.style.display = "none";
+
+            // Show the appropriate field div based on the selected value
+            if (selectedValue === "teacher") {
+                teacherFields.style.display = "block";
+                // Disable student fields
+                disableStudentFields();
+            } else if (selectedValue === "student") {
+                studentFields.style.display = "block";
+                // Enable student fields
+                disableTeachersFields();
+            }
+        });
+
+        // Function to disable student fields
+        function disableStudentFields() {
+            var studentFieldElements = studentFields.querySelectorAll('input, select');
+            for (var i = 0; i < studentFieldElements.length; i++) {
+                studentFieldElements[i].disabled = true;
+            }
+        }
+
+        // Function to disable teacher fields
+        function disableTeachersFields() {
+            var teacherFieldElements = teacherFields.querySelectorAll('input, select');
+            for (var i = 0; i < teacherFieldElements.length; i++) {
+                teacherFieldElements[i].disabled = true;
+            }
+        }
+    }
+</script>
+<script>
+    function updateTime() {
+        var currentTime = new Date();
+        var hours = currentTime.getHours();
+        var minutes = currentTime.getMinutes();
+        var seconds = currentTime.getSeconds();
+
+        // Ensure two-digit formatting
+        hours = (hours < 10 ? "0" : "") + hours;
+        minutes = (minutes < 10 ? "0" : "") + minutes;
+        seconds = (seconds < 10 ? "0" : "") + seconds;
+
+        var timeString = hours + ":" + minutes + ":" + seconds;
+
+        document.getElementById('time').textContent = timeString;
+    }
+
+    // Call updateTime initially and set an interval to update it every second
+    updateTime();
+    setInterval(updateTime, 1000);
+</script>
+<script>
+    window.addEventListener('scroll', function() {
+        var navbar = document.getElementById('mainNavbar');
+        var scrollY = window.scrollY || window.pageYOffset;
+    
+        if (scrollY > 150) { // Adjust the scroll position at which the navbar becomes fixed
+            navbar.classList.add('fixed-navbar');
+        } else {
+            navbar.classList.remove('fixed-navbar');
+        }
+    });
+</script>
+
+</head>
+<body>
+<header>
+    <!-- Navbar -->
+<nav class="navbar navbar-expand-lg bg-info navbar-dark" id="mainNavbar" style = "background-color : lightblue ; padding: 30px 0px">
+    <!-- Container wrapper -->
+    <div class="container-fluid">
+        <!-- Navbar brand -->
+        <a class="navbar-brand" href="{{path}}">School Management</a>
+        <!-- Icons -->
+        <ul class="navbar-nav d-flex flex-row me-1">
+            <li class="nav-item me-3 me-lg-0">
+                <a class="nav-link text-white" href="{{path}}"><i class="fas fa-envelope mx-1"></i> Home</a>
+            </li>
+            {% if path == '/student/' %}
+            <li class="nav-item me-3 me-lg-0">
+              <a class="nav-link text-white" href="{{path}}Courses_Info"><i class="fas fa-envelope mx-1"></i> Courses Info</a>
+            </li>
+            <li class="nav-item me-3 me-lg-0">
+                <a class="nav-link text-white" href="{{path}}GradeSheet"><i class="fas fa-envelope mx-1"></i> GradeSheet</a>
+            </li>
+            <li class="nav-item me-3 me-lg-0">
+              <a class="nav-link text-white" href="{{path}}profile"><i class="fas fa-cog mx-1"></i>profile</a>
+            </li>
+            <li class="nav-item me-3 me-lg-0">
+                <a class="nav-link text-white" href="/logout/"><i class="fas fa-cog mx-1"></i>Logout</a>
+            {% elif path == '/teacher/' %}
+            <li class="nav-item me-3 me-lg-0">
+              <a class="nav-link text-white" href="{{path}}gallery"><i class="fas fa-envelope mx-1"></i> Gallery</a>
+            </li>
+            <li class="nav-item me-3 me-lg-0">
+                <a class="nav-link text-white" href="{{path}}Attendence"><i class="fas fa-envelope mx-1"></i> Attendence</a>
+            </li>
+            <li class="nav-item me-3 me-lg-0">
+              <a class="nav-link text-white" href="{{path}}StudentsDetails"><i class="fas fa-cog mx-1">Students Details</i></a>
+            </li>
+            <li class="nav-item me-3 me-lg-0">
+                <a class="nav-link text-white" href="{{path}}gradeupdate"><i class="fas fa-cog mx-1">Grade Sheet</i></a>
+              </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    About
+                  </a>
+                  <ul class="dropdown-menu" style = "text-align : left">
+                    <li><a class="dropdown-item" href="{{path}}profile">profile</a></li>
+                    <li><a class="dropdown-item" href="{{path}}updateprofile">Profile Update</a></li>
+                    <li><a class="dropdown-item" href="{{path}}StudentsDetails">Student Details</a></li>
+                    <li><a class="dropdown-item" href="{{path}}assignment">Assignment</a></li>
+                    <li><a class="dropdown-item" href="{{path}}gradeupdate">Grade Sheet</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="/logout/">Logout</a></li>
+                  </ul>
+            </li>
+            <li class="nav-item me-3 me-lg-0">
+                <a class="nav-link text-white" href="/logout/"><i class="fas fa-cog mx-1"></i>Logout</a>
+            </li>
+
+            {% else %}
+            <li class="nav-item me-3 me-lg-0">
+                <a class="nav-link text-white" href="{{path}}gallery"><i class="fas fa-envelope mx-1"></i> Gallery</a>
+            </li>
+            <li class="nav-item me-3 me-lg-0">
+                <a class="nav-link text-white" href="{{path}}about_founder"><i class="fas fa-envelope mx-1"></i> About founder</a>
+            </li>
+            <li class="nav-item me-3 me-lg-0">
+                <a class="nav-link text-white" href="{{path}}contact"><i class="fas fa-envelope mx-1"></i> Contact</a>
+            </li>
+            <li class="nav-item me-3 me-lg-0">
+              <a class="nav-link text-white" href="{{path}}new-user"><i class="fas fa-cog mx-1"></i>Register</a>
+            </li>
+            <li class="nav-item me-3 me-lg-0">
+                <a class="nav-link text-white" href="{{path}}login"><i class="fas fa-cog mx-1"></i>Login</a>
+            </li>
+                {% if request.user.is_authenticated %}
+            <li class="nav-item me-3 me-lg-0">
+                <a class="nav-link text-white" href="/logout/"><i class="fas fa-cog mx-1"></i>Logout</a>
+            </li>
+            <li class="nav-item me-3 me-lg-0">
+                <a class="nav-link text-white" href="{{path}}"><i class="fas fa-cog mx-1"></i>Main Page</a>
+            </li>
+                {% endif %}
+            {% endif %}
+        </ul>
+    </div>
+   <!-- Container wrapper -->
+</nav>
+</header>
+

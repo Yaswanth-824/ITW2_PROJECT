@@ -1,0 +1,35 @@
+{% include 'header.html' %}
+<div class="container mt-4">
+    <h1>Welcome, Teacher!</h1>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Manage Classes</h5>
+            <p class="card-text">View and manage your classes, schedule, and students.</p>
+            <a href="#" class="btn btn-primary">Manage Classes</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Grading System</h5>
+            <p class="card-text">Record and update grades for your students' assignments and exams.</p>
+            <a href="/teacher/gradeupdate/" class="btn btn-primary">Grading System</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Assignments</h5>
+            <p class="card-text">Upload Assignment For Students.</p>
+            <a href="/teacher/assignment/" class="btn btn-primary">Add Assignment</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% include 'footer.html' %}

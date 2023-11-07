@@ -1,0 +1,70 @@
+<div class="b-example-divider"></div>
+
+<div class="footer" style = "background-color: lightblue" >
+<div class="container">
+  <footer class="py-5">
+    <div class="row">
+      <div class="col-2">
+        <h5>Services</h5>
+        <ul class="nav flex-column">
+          <li class="nav-item mb-2"><a href="{{path}}" class="nav-link p-0 text-muted">Services</a></li>
+          <li class="nav-item mb-2"><a href="{{path}}" class="nav-link p-0 text-muted">Cum Soctis</a></li>
+          <li class="nav-item mb-2"><a href="{{path}}" class="nav-link p-0 text-muted">Nulla consequat</a></li>
+          <li class="nav-item mb-2"><a href="{{path}}" class="nav-link p-0 text-muted">Schools</a></li>
+          <li class="nav-item mb-2"><a href="{{path}}" class="nav-link p-0 text-muted">About</a></li>
+        </ul>
+      </div>
+
+      <div class="col-2">
+        <h5>Website</h5>
+        <ul class="nav flex-column">
+          <li class="nav-item mb-2"><a href="{{path}}" class="nav-link p-0 text-muted">Home</a></li>
+          <li class="nav-item mb-2"><a href="{{path}}about-us" class="nav-link p-0 text-muted">About</a></li>
+          <li class="nav-item mb-2"><a href="{{path}}gallery" class="nav-link p-0 text-muted">Gallery</a></li>
+          {% if path == '/student/' or path == '/teacher/' %}
+          <li class="nav-item mb-2"><a href="/" class="nav-link p-0 text-muted">Logout</a></li>
+          {% else %}
+          <li class="nav-item mb-2"><a href="{{path}}login" class="nav-link p-0 text-muted">Login</a></li>
+          <li class="nav-item mb-2"><a href="{{path}}new-user" class="nav-link p-0 text-muted">Registration</a></li>
+          {% endif %}
+        </ul>
+      </div>
+
+      <div class="col-2">
+        <h5>About</h5>
+        <ul class="nav flex-column">
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Best School</a></li>
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Features</a></li>
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Pricing</a></li>
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Place</a></li>
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">New</a></li>
+        </ul>
+      </div>
+
+       <div class="col-2">
+        <h5>Section</h5>
+        <ul class="nav flex-column">
+          <li class="nav-item mb-2"><a href="{{path}}" class="nav-link p-0 text-muted">Home</a></li>
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Features</a></li>
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Pricing</a></li>
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">FAQs</a></li>
+          <li class="nav-item mb-2"><a href="{{path}}about-us" class="nav-link p-0 text-muted">About</a></li>
+        </ul>
+      </div>
+
+       <div class="col-2">
+        <h5>Contact</h5>
+        <ul class="nav flex-column">
+          <li class="nav-item mb-2"><a href="mailto:parayeswanth739@gmail.com">Send Email</a></li>
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Message</a></li>
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Twitter</a></li>
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Information</a></li>
+          <li class="nav-item mb-2"><a href="{{path}}about-us" class="nav-link p-0 text-muted">About</a></li>
+        </ul>
+      </div>
+</div>
+      
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

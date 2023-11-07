@@ -1,0 +1,90 @@
+{% include 'header.html' %}
+<div class="container" style = "border : 1px rgb(192,192,192) solid;">
+    <h1 style = "text-align : center ; background-color :  rgb(119,136,153);margin : 1% 25% ;border-radius : 2cm ; width : auto">User Profile</h1>
+    <table class="table">
+        <tr>
+            <div class="container">
+                <th>Pofile Photo</th>
+                <td><img src="{{ profile.photo }}" alt="loading ProfilePhoto Image" style="border-radius: 1.5cm; width: 3cm; height: 3cm;">
+            </div>
+        </tr>
+        <tr>
+            <th>First Name</th>
+            <td>{{user.first_name}}</td>
+        </tr>
+        <tr>
+            <th>Surname</th>
+            <td>{{ user.last_name}}</td>
+        </tr>
+        <tr>
+            <th>Date of Birth</th>
+            <td>{{ profile.date_of_birth }}</td>
+        </tr>
+        <tr>
+            {% if path == '/teacher/' %}
+            <th>Role</th>
+            <td>Teacher</td>
+            {% elif path == '/student/' %}
+            <th>Role</th>
+            <td>Student</td>
+            {% endif %}
+        </tr>
+            {% if path == '/teacher/' %}
+            {% for key,data in teacher.items %}
+            <tr>
+                <th>{{key}}</th>
+                <td>{{data}}</td>
+            </tr>
+            {% endfor %}
+            {% elif path == '/student/' %}
+            {% for key,data in student.items %}
+            <tr>
+                <th>{{key}}</th>
+                <td>{{data}}</td>
+            </tr>
+            {% endfor %}
+            {% endif %}
+
+        <tr>
+            <th>Gender</th>
+            <td>{{ profile.gender }}</td>
+        </tr>
+        <tr>
+            <th>Country Code</th>
+            <td>{{ profile.country_code }}</td>
+        </tr>
+        <tr>
+            <th>Phone Number</th>
+            <td>{{ profile.phone_number }}</td>
+        </tr>
+        <tr>
+            <th>Father's Name</th>
+            <td>{{ profile.father_name }}</td>
+        </tr>
+        <tr>
+            <th>Mother's Name</th>
+            <td>{{ profile.mother_name }}</td>
+        </tr>
+        <tr>
+            <th>Username</th>
+            <td>{{ profile.username }}</td>
+        </tr>
+        <tr>
+            <th>Email</th>
+            <td>{{ profile.email }}</td>
+        </tr>
+        <tr>
+            <th>Permanent Address</th>
+            <td>{{ profile.Permanent_address }}</td>
+        </tr>
+        <tr>
+            <th>Age</th>
+            <td>{{ profile.age }}</td>
+        </tr>
+    </table>
+    <form action = "{{path}}updateprofile/">
+        <center><button input type = "submit" style = "width : 100px ; border-radius : 1cm ;">Update </button></center>
+    </form>
+
+</div>
+{% include 'footer.html' %}

@@ -1,0 +1,27 @@
+{% include 'header.html'%}
+<div style = "text-align : center"><h1> Grade Sheet</h1></div>
+<div  style = "margin : 3% 20% ; border : 4px black solid;border-radius :1cm">
+<table class="table">
+    <thead>
+      <tr>
+        <th >Subject</th>
+        <th>Grade</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for key, data in grade_info.items %}
+      <tr>
+        <td>{{ data.Subject }}</td>
+        <td>{{ data.grade }}</td>
+      </tr>
+      {% endfor %}
+      <tr>
+        <div style = " color = black">
+        <td><b>Avg Grade :</b></td>
+        <td><b>{{avg_grade}}</b></td>
+        </div>
+      </tr>
+    </tbody>
+  </table>
+</div>
+{% include 'footer.html' %}

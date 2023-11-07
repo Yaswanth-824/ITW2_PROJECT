@@ -1,0 +1,48 @@
+{% include 'header.html' %}
+{% if request.user.is_authenticated %}
+<div class="alert alert-danger" role="alert">
+    You Already Login as a User PLz Logout<br>
+    <a href= "/logout/">Plz press To logout</a>
+</div>
+{% else %}
+    <div class="login-container">
+        <div class="form-container">
+            <div>
+                <h2 class="login-title">Login Page</h2>
+                </ul>
+                {% if messages %}
+                    <ul class="messages">
+                        {% for message in messages %}
+                        <div class="alert alert-danger" role="alert">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                {% endif %}
+                {% if count == 0 %}
+                <div class="alert alert-warning" role="alert">
+                    This is a warning alert with <a href="{{path}}new-user" class="alert-link">New-user</a>. plz Register
+                  </div>
+                {% endif %}
+                <hr class="divider">
+                <form action="/login/" method="post">
+                    <div class="form-group">
+                        {% csrf_token %}
+                        {% for i in Login_form %}
+                        <label class="form-label">{{i.label}} :</label>
+                        {{i}}<br><br>
+                        {% endfor %}
+                    </div>
+                    <button type="submit" class="login-button">Login</button>
+                    <div class="link-container">
+                        <a href="{{path}}forgot-password" class="forgot-password-link">Forgot Password?</a>
+                        <span class="link-separator">|</span>
+                        <a href="{{path}}new-user" class="register-link">New User? Register here</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endif %}
+<!--footer-->
+
+{% include 'footer.html' %}

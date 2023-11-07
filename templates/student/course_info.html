@@ -1,0 +1,22 @@
+{% include 'header.html'%}
+<h1>Courses and Teachers</h1>
+
+<div class="row">
+    <h1>{{courses.username}}</h1>
+    {% for key, data in courses.items %}
+        {% for key1, data1 in register.items %}
+            {% if data1.subject == data %}
+                <div class="col-md-6">
+                    <div style = "border : 2px grey solid;border-radius : 1cm ;margin : 1%">
+                        <div class="card-body">
+                            <h2> {{ data }}</h2>
+                            <p style = "text-align : center">Teacher Info: {{ data1.teacher }}</p>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+        {% endfor %}
+    {% endfor %}
+</div>
+</div>
+{% include 'footer.html' %}

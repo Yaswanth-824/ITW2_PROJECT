@@ -1,0 +1,57 @@
+{% include 'header.html' %}
+{% for key, data in info.items %}
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Key</th>
+            <th>Data</th>
+            <th>Due Date</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for key1, data1 in data.items %}
+                <tr>
+                    <td>{{ key1 }}</td>
+                    <td>{{ data1 }}</td>
+        {% endfor %}
+                    <td>
+                        <form method = "POST" action = "{{path}}updateduedate/">
+                        {% csrf_token %}
+                        <input type="hidden" name="title" value="{{data.Title}}" />
+                        <input type = "date" name = 'due_date' style="width: 150px;"/>
+                        <button class="btn btn" style = "width : 50 % ; border-radius : 1cm ;color :green ;">Update date</button>
+                    </form>
+                    </td>
+                    <td>
+                        <form method = "POST" action = '/teacher/delete/'>
+                            {% csrf_token %}
+                            <input type="hidden" name="title" value="{{data.Title}}" />
+                            <button class="btn btn-danger" style = "width : 50 % ; border-radius : 1cm ">Delete Assignment</button>
+                        </form>
+                    </td>
+                </tr>
+    </tbody>
+</table>
+{% endfor %}
+
+{% comment %} {% for key,data in info.items %}
+{% for key1,data1 in data.items %}
+{{key1}} : {{data1}} <br>
+{% endfor %}
+{% endfor %} {% endcomment %}
+    <div class="container">
+        <h2>Add Assisgnment Here</h2>
+        <form method="POST">
+          {% csrf_token %}
+          <div class="form-group">
+            {{form}}<br>
+            <label for ="due_date"> Due Date :</label>
+            <input Type = "date" id = "due_date" name = "due_date" required/>
+          </div>
+          <div style="text-align: right;">
+          <button type="submit" style = "width : 25% ; border-radius : 1cm ">Submit</button>
+          </div>
+        </form>
+    </div>
+{% include 'footer.html' %}

@@ -1,0 +1,29 @@
+{% include 'header.html' %}
+<form action = "{{path}}updateprofile/" method = "post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div style = "width : 60% ">
+        <b style = "text-align : center">Personal Info</b> <br>
+        <label for ="first_name"> First Name :</label>
+            <input Type = "text" id = "first_name" name = "first_name" value = "{{data.first_name}}" required/><br>
+        <label for ="last_name"> Last Name :</label>
+            <input Type = "text" id = "last_name" name = "last_name" value = "{{data.surname}}" required/><br>
+        <label for ="email"> Email :</label>
+            <input Type = "email" id = "email" name = "email" value = "{{data.email}}" required/><br><br>
+        <label for ="date_of_birth"> Date of Birth :</label>
+            <input Type = "date" id = "date_of_birth" name = "date_of_birth" value = "{{data.date_of_birth}}" required/>{{data.date_of_birth}}<br><br>
+        <label for ="photo"> Photo : </label>
+            <input Type = "file" id = "photo" name = "photo" /><img src= {{data.photo}} style = "width : 3cm ; border-radius : 1.5cm" ></img><br>
+        <label for ="gender"> Gender : </label>
+            <input Type = "text" id = "gender" name = "gender" value = "{{data.gender}}" required/><br>
+        <label for ="phone_number"> Mobile Number : </label>
+            <input Type = "text" id = "phone_number" name = "phone_number" value = "{{data.phone_number}}" required/><br>
+        <label for ="father_name"> Father Name : </label>
+            <input Type = "text" id = "father_name" name = "father_name" value = "{{data.father_name}}" required/><br>
+        <label for ="mother_name"> Mother Name : </label>
+            <input Type = "text" id = "mother_name" name = "mother_name" value = "{{data.mother_name}}" required/><br>
+        <label for ="Permanent_address"> Permanent Address : </label>
+            <input Type = "text" id = "Permanent_address" name = "Permanent_address"value = "{{data.Permanent_address}}" required/><br>
+    </div>
+    <center><button input type = "submit" style = "width : 100px ; border-radius : 1cm ;">Update </button></center>
+</form>
+{% include 'footer.html' %}

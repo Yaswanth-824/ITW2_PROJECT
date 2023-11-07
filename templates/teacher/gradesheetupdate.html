@@ -1,0 +1,33 @@
+{% include 'header.html' %}
+    <div class="container mt-4" style = "text-align : center ; border : 1px black solid">
+        <h1>Teacher's Grade Management</h1>
+        <form method = "POST">
+        {% csrf_token %}
+          <div class="row" >
+            <div >
+              {% for key, data in students.items %}
+              <div style = "margin : 5% 25% 0% 25% ; border : 1px black solid ; padding-bottom : 5%;box-shadow: 3px 3px 5px 0px rgba(0, 0, 0, 0.5);">
+              <form method = "POST">
+                {% csrf_token %}
+              <table class="table">
+                <tbody>
+                  <input type="hidden" name="username" value="{{data.student}}" />
+                  {% for key1,data1 in data.items %}
+                  <tr>
+                    <th scope="row">{{key1}}</th>
+                    <td >{{ data1 }}</td>
+                  </tr>
+                  {% endfor %}
+                  <tr>
+                  {{form}}
+                  </tr>
+                </tbody>
+              </table>
+              <center><button input type = "submit" style = "width : 300px ; border-radius : 1cm ;">Update </button></center>
+            </form>
+          </div>
+            {% endfor %}
+            </div>
+          </div>
+      </div>
+{% include 'footer.html' %}

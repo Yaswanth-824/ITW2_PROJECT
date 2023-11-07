@@ -1,0 +1,82 @@
+{% include 'header.html' %}
+<div class="container">
+    {% for key, data in slist.items %}
+    <div class="card mb-3">
+        <div class="card-header">Profile and Student Details -<b style ="background-color : green "> {{ data.student_details.userName }}</b></div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table">
+                    <!-- Add other profile fields here -->
+                    <tr>
+                        <th>Field</th>
+                        <th>Value</th>
+                    </tr>
+                    <tr>
+                        <td>First Name</td>
+                        <td>{{ data.profile.first_name }}</td>
+                    </tr>
+                    <tr>
+                        <td>Last Name</td>
+                        <td>{{ data.profile.surname }}</td>
+                    </tr>
+                    <tr>
+                        <td>Date of Birth</td>
+                        <td>{{ data.profile.date_of_birth }}</td>
+                    </tr>
+                    <tr>
+                        <td>Gender</td>
+                        <td>{{ data.profile.gender }}</td>
+                    </tr>
+                    <tr>
+                        <td>Phone Number</td>
+                        <td>{{ data.profile.phone_number }}</td>
+                    </tr>
+                    <tr>
+                        <td>Father Name</td>
+                        <td>{{ data.profile.father_name }}</td>
+                    </tr>
+                    <tr>
+                        <td>Mother Name</td>
+                        <td>{{ data.profile.mother_name }}</td>
+                    </tr>
+                    <tr>
+                        <td><b>Student Details :</b></td>
+                    </tr>
+                    <!-- Add other student details fields here -->
+                    <tr>
+                        <td>User Name </td>
+                        <td>{{ data.student_details.userName }}</td>
+                    </tr>
+                    <tr>
+                        <td>Class/Branch</td>
+                        <td>{{ data.student_details.class_branch }}</td>
+                    </tr>
+                    <tr>
+                        <td>Grade</td>
+                        <td>{{ data.student_details.grade }}</td>
+                    </tr>
+                    <tr>
+                        <td>Guardian Name</td>
+                        <td>{{ data.student_details.guardian_name }}</td>
+                    </tr>
+                    <tr>
+                        <td>Guardian Phone Number</td>
+                        <td>{{ data.student_details.guardian_phone_number }}</td>
+                    </tr>
+                    <tr>
+                        <td>Father Phone Number</td>
+                        <td>{{ data.student_details.father_phone_number }}</td>
+                    </tr>
+                    <tr>
+                        <td>Mother Phone Number</td>
+                        <td>{{ data.student_details.mother_phone_number }}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+<div></div>
+{% include 'footer.html' %}

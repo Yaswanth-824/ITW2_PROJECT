@@ -1,0 +1,91 @@
+{% include 'header.html' %}
+{% if request.user.is_authenticated %}
+<div class="alert alert-danger" role="alert">
+    You Already Registered as an User<br>
+    Plz Logout For NewRegistration<br>
+    <a href= "/logout/">Plz press To logout</a>
+</div>
+{% else %}
+    <div class="registration-container">
+        <h2>New User Registration</h2>
+        {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+            <div class="alert alert-danger" role="alert">
+                {{ message }}
+            </div>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        <form action = '/register_user/' method = "post" enctype="multipart/form-data">
+        {% csrf_token %}
+            {% for i in user %}
+                {{i.label}} : <br>{{i}}
+            {% endfor %}
+            <b style = "text-align : center">Personal Info</b> <br>
+            <label for ="first_name"> First Name :</label>
+                <input Type = "text" id = "first_name" name = "first_name" required/>
+            <label for ="last_name"> Last Name :</label>
+                <input Type = "text" id = "last_name" name = "last_name" required/>
+            <label for ="date_of_birth"> Date of Birth :</label>
+                <input Type = "date" id = "date_of_birth" name = "date_of_birth" required/>
+            <label for ="photo"> Photo : </label>
+                <input Type = "file" id = "photo" name = "photo" required/>
+            {% for i in newUser %}
+                {{i.label}} : <br>{{i}}
+            {% endfor %}
+            <label for="user_type">User Type:</label>
+            <select id="user_type" name="user_type" required>
+                <option value="none">Select Type</option>
+                <option value="teacher">Teacher</option> 
+                {% comment %} <option value = "customer"> Customer</option>{% endcomment %}
+                {% comment %} <option value = "worker"> Worker</option>{% endcomment %}
+                <option value="student">Student</option>
+            </select>
+            <div id="teacher-fields" style="display: none;">
+                <!-- Fields for Teacher -->
+                <label for="class_Teacher">Class Teacher:</label>
+                <select id="class_Teacher" name="class_Teacher" required>
+                    <option value = 'none'>Select Class</option>
+                    {% for i in class %}
+                    <option value = "{{i}}">{{i}}</option>
+                    {% endfor %}
+                </select><br>
+                <label for="subject">Subject :</label>
+                <select id="subject" name="subject" required>
+                    <option value = 'none'>Select Subject</option>
+                    {% for i in Subject %}
+                    <option value = "{{i}}">{{i}}</option>
+                    {% endfor %}
+                </select><br>
+        
+                <label for="salary">Salary:</label>
+                <input type="text" id="salary" name="salary" required><br>
+                <label for="dateofenrollment">Select Date and Time:</label>
+                <input type="datetime-local" id="dateofenrollment" name="dateofenrollment">
+            </div>
+            <div id="student-fields" style="display: none;">
+                <label for="class_branch">Class/Branch:</label>
+                <select id="class_branch" name="class_branch" required>
+                    <option value = 'none'>Select Class/Branch</option>
+                    {% for i in class %}
+                    <option value = "{{i}}">{{i}}</option>
+                    {% endfor %}
+                </select><br>
+                <label for="grade">Grade:</label>
+                <input type="text" id="grade" name="grade" required><br>
+                <label for="Gardian_Name">Gardian Name:</label>
+                <input type="text" id="Gardian_Name" name="Gardian_Name" required><br>
+                <label for="Gardian_Phone_Numbder">Gardian Phone Numbder:</label>
+                <input type="text" id="Gardian_Phone Numbder" name="Gardian_Phone_Numbder" required><br>
+                <label for="Father_Phone_Numbder">Father Phone Numbder:</label>
+                <input type="text" id="Father_Phone Numbder" name="Father_Phone_Numbder"><br>
+                <label for="Mother_Phone_Numbder">Mother Phone Numbder:</label>
+                <input type="text" id="Mother_Phone Numbder" name="Mother_Phone_Numbder"><br>
+            </div>
+            <button input type = "Submit"> Register </button>
+        </form>
+    </div>
+{% endif %}
+<!--footer-->
+{% include 'footer.html' %}

@@ -1,0 +1,40 @@
+{% include 'header.html' %}
+<div class="container">
+    {% for key,data in info.items %}
+    {% if data %}
+    <h2 style = "color: rgb(0, 0, 0);
+    font: 700 50px Open Sans;
+    top: 0px;
+    margin: 0px;
+    padding: 5px;
+    text-transform: uppercase;"><u>Subject:::: {{key}}</u></h2>
+    {% for key1 ,data1 in data.items %}
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Task</th>
+          <th>Due Date</th>
+          <th>Link</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>{{data1.Title}}</td>
+          <td>{{ data1.DueDate }}</td>
+          <td><a href="{{data1.link}}"><button style = "width : 5cm;border-radius : 1.5cm">Link</button></a></td>
+        </tr>
+      </tbody>
+    </table>
+    {% endfor %}
+    {% else %}
+    <h2 style = "color: rgb(0, 0, 0);
+    font: 700 50px Open Sans;
+    top: 0px;
+    margin: 0px;
+    padding: 5px;
+    text-transform: uppercase;"><u>Subject:::: {{key}}</u></h2> <p>No Assignments Yet</p> <br>
+    {% endif %}
+    {% endfor %}
+  </div>
+  
+{% include 'footer.html' %}

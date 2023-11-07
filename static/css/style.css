@@ -1,0 +1,115 @@
+.active-link {
+	background-color: white;
+	color: black; /* You can set the text color for the active link */
+}
+
+.heading{
+	margin-left: 150px;
+	margin-top: 30px;
+	}
+.main{
+		margin-top: 20px;
+	}
+	.banner{
+	height: auto; 
+	margin-top:50px;
+	margin-left:100px;
+	width: 100%;	
+	}
+	.row{
+		margin: 30px;
+	}
+	.footer{
+		background-color:pink;
+		 text-align: center;
+		 flex-direction: row;
+	}
+	.col-md-4{
+	background-color: lightgreen;
+	
+	}
+	.text{
+		text-align: center;
+		 color: whitesmoke;
+		margin: 10px 100px 10px ; 
+		background-image: url('../images/photo-1432821596592-e2c18b78144f.jfif');
+	}
+	.floatingleft {
+		float: left;
+	}
+	
+	.contact{
+		text-align: center;
+		margin: 10px 10px 10px ; 
+	 	background-image: url('../images/contact%20image.jpg');
+	
+	}
+	button {
+		background-color: #007BFF;
+		color: #fff;
+		padding: 10px;
+		border: none;
+		border-radius: 3px;
+		margin-top: 10px;
+		cursor: pointer;
+	}
+	/* Style for active link */
+	.navbar-nav .nav-link.active {
+    background-color: lightblue;
+    color: white; /* Change the text color as needed */
+}
+
+	
+
+	@media (max-width: 1000px){
+	
+	.banner-box{
+		width: 100%;
+	}
+	
+	.heading{
+		width: 100%;
+		margin: 0;
+		margin-top: 20px;
+	}
+	
+	.banner{
+		width: 100%;
+		margin: 0px;
+	}
+	.container{
+		flex-direction: column;
+	}
+	.row{
+		flex-direction: column;
+		margin-top: 10px;
+	}
+	.g-0{
+		--bs-gutter-y: 0;
+		width: fit-content;
+	}
+	.col-4 {
+		flex: 0 0 auto;
+		width: 100%;
+	}
+	.footer{
+		flex-direction: column;
+		text-align: center;
+		margin: 0px;
+	}
+	.text{
+		width: 100%;
+		margin: 0px;
+	
+	
+	}
+	.r5{
+		float: center;
+	}
+	
+	.contact{
+		width: 100%;
+		margin: 0px;
+		margin-bottom: 5px;
+	}
+	}

@@ -1,0 +1,22 @@
+{% include 'header.html' %}
+    <div class="registration-container">
+        <h2>Course Registration</h2>
+        <form method = "POST">
+        {% csrf_token %}
+        {% for key,data in teacher.items %}
+            {% for i in form %}
+                {% if i.label == key %}
+                    {{i.label}} :{{i}}<br>
+                    <label for="teacher">{{i.label}} Teacher</label>
+                    <select id="teacher" name="{{i.label}}teacher" required>
+                    {% for data1 in data.values %}
+                        <option value="{{data1}}">{{data1}}</option>
+                    {% endfor %}
+                    </select><br>
+                {% endif %}
+            {% endfor %}
+        {% endfor %}
+        <button input type = "Submit"> Register </button>
+        </form>
+    </div>
+{% include 'footer.html' %}

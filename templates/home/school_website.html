@@ -1,0 +1,150 @@
+{% include 'header.html' %}
+<div class="container">
+  <div class="row">
+    <div class="col-md-8">
+      <div id="image-slider" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+          <li data-target="#image-slider" data-slide-to="0" class="active"></li>
+          <li data-target="#image-slider" data-slide-to="1"></li>
+          <li data-target="#image-slider" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img class="d-block w-100" src="static/images/school%201.jpg" alt="">
+          </div>
+          <div class="carousel-item">
+            <img class="d-block w-100" src="static/images/school%202.jfif" alt="">
+          </div>
+          <div class="carousel-item">
+            <img class="d-block w-100" src="static/images/school%203.jfif" alt="">
+          </div>
+        </div>
+        <a class="carousel-control-prev" href="#image-slider" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only"></span>
+        </a>
+        <a class="carousel-control-next" href="#image-slider" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" ariahidden="true"></span>
+          <span class="sr-only"></span>
+        </a>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <h3 style="background-color: lightblue; padding: 30px;">Latest School News</h3>
+      <marquee direction="up" behavior="scroll" scrollamount="1" height="300px">
+        <div class="card">
+          <img src="static/images/school%202.jfif" class="card-img-top" alt="Latest School News">
+          <div class="card-body">
+            <h5 class="card-title">July 26, 2022 Latest School News</h5>
+            <p class="card-text"></p>
+          </div>
+        </div>
+        <div class="card">
+          <img src="static/images/school%203.jfif" class="card-img-top" alt="Latest School News">
+          <div class="card-body">
+            <h5 class="card-title">July 27, 2022 Latest School News</h5>
+            <p class="card-text"></p>
+          </div>
+        </div>
+        <div class="card">
+          <img src="static/images/school%204.jfif" class="card-img-top" alt="Latest School News">
+          <div class="card-body">
+            <h5 class="card-title">July 28, 2022 Latest School News</h5>
+            <p class="card-text"></p>
+          </div>
+        </div>
+      </marquee>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-8">
+        <h3>Welcome to School Website</h3>
+        <p>School Management System is a complete school management software designed to automate a school's diverse from class, exams events calendar. This school software has a powerful online community to bring parents, teachers, and students on a common interactive platform. It is a paperless office automation solution for today's modern school. The school Management system provides the facility to carry out all day-to-day activities of the school, making them fast, easy, efficient, and accurate. All these departments provide various records regarding students. Most of these track records need to maintain information about the students. This information could be the general details like student name, address, performance, attendance, etc., or specific information related to departments like collection of data.</p>
+      </div>   
+  </div>
+</div>
+
+
+
+{% comment %} first image {% endcomment %}
+{% comment %} <div style="background-color:pink; margin-top: 0px">
+  <div  class="container">
+  <div class="row">
+    <div class="col-4 banner-box"><a>        
+    <img class="banner" src="static/images/school%201.jpg" alt="" ></a></div>
+    <div class="col-6 heading"> <a><h3>Welcome to School Managment
+      <br>
+    Website and Information System</h3></a>
+     <br>
+     
+    <a><p> School Management System is a complete school <br>manangement software designed to automate a school's<br>diverse operations</p>
+     </a></div>
+  </div>
+</div>
+{% comment %} content 
+</div>
+ <div   class="container">
+  <div class="row">
+     <div   class="col-6"> <h3>Welcome to School Website</h3>
+      <br>
+  <p>School Managemwnt System is a complete school management software designed to automate a school's diverse from class, exams events calendar. 
+    <br>
+    <br>
+    This school software has a powerfull online community to bring parents, teachers and students on a common intractive platform. It is apaperless office automation solution for today's mordan school. The school Management system provides the facility to carry out all day to day activities of the school, making them fast, easy, efficient and accurate.
+<br>
+    <br>
+
+     All these departmants provide various records regarding studants. Most of these track records need to maintain infoirmation about the studants. This information could be the general details like student name, address, performance, attendance etc or specific information related to departmants like collection of data.  </p></div>
+
+    <div class="col-4"><h3 style="background-color: lightblue; padding: 30px;">Latest School News</h3><div class="row g-0">
+    <div  class="col-md-4">
+      <img  src="static/images/school%202.jfif" class="img-fluid rounded-start" alt="..."width="100px" height="500px" >
+    </div>
+    <div  style="background-color: lightgreen;"class="col-md-8">
+      <div class="card-body">
+        <h5 style="margin:20px;" class="card-title">july 26,2022<br>Latest School News</h5>
+        <p class="card-text"></p>
+        
+      </div>
+    </div>
+  </div>
+
+  <div  style="background-color: lightpink;" class="row g-0">
+    <div class="col-md-5">
+      <img style="margin:20px;" src="static/images/school%203.jfif" class="img-fluid rounded-start" alt="..."width="100px" height="100px" >
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 style="margin:20px;" class="card-title">july 27,2022<br>Latest School News</h5>
+        <p class="card-text"></p>
+     
+      </div>
+    </div>
+  </div>
+
+
+
+
+  <div  style="background-color: lightgreen;" class="row g-0">
+    <div class="col-md-4">
+      <img style="margin:20px;" src="static/images/school%204.jfif" class="img-fluid rounded-start" alt="..."width="100px" height="100px" >
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 style="margin:20px;" class="card-title">july 28,2022<br>Latest School News</h5>
+        <p class="card-text"></p>
+        <p  style="float: right;"class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div></div>
+  </div>
+</div> {% endcomment %}
+<!--footer-->
+</div></div>
+</div>
+</div>
+{% include 'footer.html' %}

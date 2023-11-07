@@ -1,0 +1,8 @@
+{% include 'header.html' %}
+{% for i in about_title %}
+{% if i.title_slug == news_Title %}
+<img  src="/media/{{i.image}}" alt="...">
+{{i.content  | safe}}
+{% endif %}
+{% endfor %}
+{% include 'footer.html' %}

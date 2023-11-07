@@ -1,0 +1,60 @@
+{% include 'header.html' %}
+This Attendence Page
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid justify-content-end">
+        <div class="d-flex">
+            <form method = "GET">
+                <div><label for="class_Teacher">Class/Branch:</label>
+                <select id="class_Teacher" name="Class" required>
+                    <option value = 'none'>Select Class</option>
+                    {% for i in class %}
+                    <option value = "{{i}}">{{i}}</option>
+                    {% endfor %}
+                </select>
+            <button class="btn btn-outline-success" type="submit">Search</button>
+            </div>
+            </form>
+        </div>
+    </div>
+</nav>
+<form method = "POST" action = "{{url}}">
+{% csrf_token %}
+<div class="container">
+    <h2>Attendance</h2>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>User Name</th>
+                <th>Total Classes</th>
+                <th>No Of Presents</th>
+                <th>Present/Absent</th>
+                <th>Total Attendance</th>
+                <th>Update</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Use Django template tags to iterate over attendance records -->
+            {% for key, data in dstudent.items %}
+            <tr>
+                <input type = "hidden" name = "username" value = "{{ data.username }}" class="form-control">
+                <td>{{date}}</td>
+                <td>{{ data.username }}</td>
+                
+                <td>{{ data.total_classes }}</td>
+                <td>{{ data.No_Of_Presents }}</td>
+                <td>
+                    <select name="status">
+                        <option value="Present" >Present</option>
+                        <option value="Absent">Absent</option>
+                    </select>
+                </td>
+                <td>{{ data.percentage_attendance }}</td>
+                <td><button class="btn btn-primary" input type = "submit" >Update</button></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+</form>
+{% include 'footer.html' %}
